@@ -18,74 +18,10 @@ import {
 import PlatesImg from "/assets/images/plates.jpg";
 import TraditionalCookingImg from "/assets/images/headCheid1.png";
 
-// Elephant Icon for traditional decor - More detailed Rangoli-style line-art
-const ElephantIcon = ({ className = "" }) => (
-  <svg
-    viewBox="0 0 200 200"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
-    {/* Outline */}
-    <path
-      d="M165 130c0 15-15 25-30 25h-10v15c0 5-5 10-10 10h-15c-5 0-10-5-10-10v-15h-35v15c0 5-5 10-10 10H40c-5 0-10-5-10-10v-15h-5c-20 0-35-15-35-35v-10c0-50 40-80 85-80h55c35 0 60 25 60 55v40z"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    {/* Traditional Tusk */}
-    <path
-      d="M25 125c-8 0-15-5-15-15"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-
-    {/* Body Decorations (Rangoli style) */}
-    <circle
-      cx="95"
-      cy="80"
-      r="25"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeDasharray="4 4"
-    />
-    <circle cx="95" cy="80" r="15" stroke="currentColor" strokeWidth="1" />
-    <path
-      d="M70 80h50M95 55v50"
-      stroke="currentColor"
-      strokeWidth="1"
-      opacity="0.5"
-    />
-
-    {/* Saddle/Ambari Decor */}
-    <rect
-      x="75"
-      y="45"
-      width="40"
-      height="25"
-      rx="3"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-    <path d="M85 45v25M105 45v25" stroke="currentColor" strokeWidth="1" />
-
-    {/* Leg patterns */}
-    <path
-      d="M45 155h15M105 155h15"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-
-    {/* Eye */}
-    <circle cx="140" cy="85" r="3" fill="currentColor" />
-    <path d="M130 80c5-5 15-5 20 0" stroke="currentColor" strokeWidth="1" />
-  </svg>
-);
 
 // Reference images from the public directory for Vite compatibility
-const HERO_IMAGE = "/assets/images/telugu_women_cooking.png";
+const HERO_IMAGE = "/assets/images/hero.png";
+const HERO_BG_IMAGE = "/assets/images/HeroBackground.jpeg";
 
 const Home = () => {
   const containerVariants = {
@@ -107,27 +43,17 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden bg-white">
-      <section className="relative min-h-screen flex items-center pt-24 pb-32 md:pb-0 bg-white overflow-hidden">
-        {/* Corner Rangolis */}
-        <div className="absolute top-10 left-0 w-[300px] h-[300px] z-10 -translate-x-1/3 -translate-y-1/3 pointer-events-none">
-          <div className="w-full h-full pattern-rangoli animate-rangoli" />
-        </div>
-        <div className="absolute top-10 right-0 w-[400px] h-[400px] z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none hidden md:block">
-          <div className="w-full h-full pattern-rangoli animate-rangoli" />
-        </div>
-
-        {/* Traditional Elephants at bottom - Expanding to complete the full section width */}
-        {/* <div className="absolute md:-bottom-2 -bottom-8 -left-12  w-full h-[180px] md:h-[40%] z-10 pointer-events-none opacity-[0.2]">
-          <img
-            src="/assets/images/welcoming_elephant.png"
-            alt="Traditional Elephant Decor"
-            className="w-full h-full object-contain object-bottom"
-          />
-        </div> */}
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+    <section 
+      className="relative min-h-[100vh] flex items-center pt-24 pb-12 bg-gray-900 overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${HERO_BG_IMAGE})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-            {/* Left Content (Text & Quote) */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -136,22 +62,18 @@ const Home = () => {
             >
               <motion.h1
                 variants={itemVariants}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-black text-gray-900 mb-6 lg:mb-8 leading-[1.2] tracking-tight relative inline-block"
+                className="text-4xl md:text-6xl font-sans font-black text-white mb-8 leading-[1.2] tracking-tight"
               >
-                <span className="block text-accent text-xl md:text-2xl font-serif italic mb-2 md:mb-4 telugu-text">
-                  స్వాగతం (Welcome)
-                </span>
-                "Celebrate your occasions <br className="hidden sm:block" />
-                with the richness of <br className="hidden sm:block" />
-                <span className="text-primary italic relative">
+                "Celebrate your occasions <br />
+                with the richness of <br />
+                <span className="text-white italic">
                   traditional flavours"
-                  <div className="absolute -bottom-4 left-0 w-full h-[15px] md:h-[20px] pattern-leaf-border" />
                 </span>
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg text-gray-500 mb-10 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed"
+                className="text-lg text-white mb-10 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed"
               >
                 Handcrafted recipes served with royal hospitality. Make your
                 special moments truly unforgettable with Annapurna Caterers.
@@ -164,14 +86,14 @@ const Home = () => {
               >
                 <a
                   href="tel:9542935841"
-                  className="w-full sm:w-auto px-10 py-5 temple-btn flex items-center justify-center font-bold group"
+                  className="w-full sm:w-auto px-10 py-5 red-gradient rounded-2xl font-bold text-white shadow-xl shadow-primary/20 hover:scale-105 transition-all flex items-center justify-center group"
                 >
                   <Phone size={18} className="mr-2" />
                   Call Now
                 </a>
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto px-10 py-5 bg-white border-2 border-primary/20 text-primary rounded-[12px_0_12px_0] font-bold hover:bg-primary/5 transition-all flex items-center justify-center"
+                  className="w-full sm:w-auto px-10 py-5 bg-white border-2 border-primary/10 text-primary rounded-2xl font-bold hover:bg-primary/5 transition-all flex items-center justify-center"
                 >
                   Enquire Now
                   <ArrowRight size={18} className="ml-2" />
@@ -179,20 +101,22 @@ const Home = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Image - Anchored to bottom right and larger */}
+            {/* Right Image Composition */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="lg:col-span-2 relative min-h-[300px] sm:min-h-[400px] lg:h-full flex items-end justify-center lg:justify-end order-1 lg:order-2"
+              className="lg:col-span-2 relative order-1 lg:order-2"
             >
-              <div className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] lg:max-w-none lg:w-[550px] lg:absolute lg:-bottom-0 lg:right-[-10%]">
+              <div className="relative z-10">
                 <img
                   src={HERO_IMAGE}
-                  alt="Traditional Telugu Cooking"
-                  className="w-full h-auto object-contain object-bottom"
+                  alt="Premium Plate"
+                  className="w-full max-w-[300px] md:max-w-[450px] mx-auto "
                 />
               </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[400px] h-[250px] md:h-[400px] border-[1px] border-dashed border-primary/20 rounded-full animate-[spin_20s_linear_infinite]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] border-[1px] border-primary/10 rounded-full" />
             </motion.div>
           </div>
         </div>
