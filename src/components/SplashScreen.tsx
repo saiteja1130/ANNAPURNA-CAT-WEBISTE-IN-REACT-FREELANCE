@@ -3,8 +3,6 @@ import { motion } from "motion/react";
 
 const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
   const [showElephants, setShowElephants] = useState(false);
-  const text = "ANNAPURNA CATERERS";
-  const letters = Array.from(text);
 
   useEffect(() => {
     const elephantTimer = setTimeout(() => setShowElephants(true), 2000);
@@ -18,18 +16,23 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)", transition: { duration: 1.2, ease: "easeInOut" } }}
+      exit={{
+        opacity: 0,
+        scale: 1.1,
+        filter: "blur(10px)",
+        transition: { duration: 1.2, ease: "easeInOut" },
+      }}
       className="fixed inset-0 z-[9999] bg-[#FFF9F2] flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Background Mandala Pattern */}
       <div className="absolute inset-0 mandala-pattern opacity-5 pointer-events-none" />
-      
+
       {/* Top Traditional Toran */}
-      <motion.div 
+      <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-0 left-0 w-full h-16 pattern-toran z-20 animate-toran" 
+        className="absolute top-0 left-0 w-full h-16 pattern-toran z-20 animate-toran"
       />
 
       {/* Center Rangoli Spinning Background */}
@@ -41,29 +44,18 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
       />
 
       <div className="flex flex-col items-center max-w-6xl w-full z-10">
-        
-        {/* Letter by Letter Text */}
-        <div className="flex flex-col items-center mb-12">
-          {/* English Text */}
-          <div className="flex flex-wrap justify-center px-4 space-x-1 md:space-x-2">
-            {letters.map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, scale: 0, rotateX: -90 }}
-                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                transition={{
-                  delay: index * 0.08,
-                  duration: 0.8,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                className="text-2xl md:text-5xl font-black text-primary tracking-tighter drop-shadow-md font-serif italic"
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </div>
-          
+        {/* Logo + Telugu Text */}
+        <div className="flex flex-col items-center mb-12 ">
+          {/* Logo Image */}
+          <motion.img
+            src="/assets/images/Logo.jpeg"
+            alt="Sree Annapurna Caterers"
+            initial={{ opacity: 0, scale: 0.75 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="w-[80vw] max-w-xl h-auto object-contain drop-shadow-xl"
+          />
+
           {/* Telugu Text (Appears after English) */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -76,7 +68,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         </div>
 
         {/* Elephants Container */}
-        <div className="relative w-full h-32 md:h-64 flex justify-center items-center">
+        <div className="relative w-full h-32 md:h-64 flex justify-center items-center ">
           {/* Elephant from Left */}
           <motion.div
             initial={{ x: "-100%", opacity: 0, rotate: -5 }}
@@ -105,31 +97,8 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
             />
           </motion.div>
         </div>
-
-        {/* Decorative Gold Elements */}
-        <div className="mt-12 flex flex-col items-center">
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            animate={showElephants ? { width: "200px", opacity: 1 } : {}}
-            transition={{ delay: 1, duration: 1.2, ease: "circOut" }}
-            className="h-1 gold-gradient rounded-full shadow-lg"
-          />
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={showElephants ? { opacity: 1 } : {}}
-            transition={{ delay: 1.8 }}
-            className="flex items-center space-x-4 mt-4"
-          >
-            <div className="w-8 h-[1px] bg-accent" />
-            <span className="text-primary font-bold tracking-[0.4em] text-[10px] md:text-xs">
-              SINCE 1998
-            </span>
-            <div className="w-8 h-[1px] bg-accent" />
-          </motion.div>
-        </div>
       </div>
-      
+
       {/* Bottom Pattern */}
       <div className="absolute bottom-0 left-0 w-full h-8 pattern-leaf-border opacity-20 pointer-events-none" />
     </motion.div>

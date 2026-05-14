@@ -148,9 +148,8 @@ const About = () => {
                 Our Vision
               </h3>
               <p className="text-gray-500 text-lg leading-relaxed font-medium italic">
-                "To celebrate catering by blending timeless traditions with
-                modern excellence, offering rich flavours and graceful
-                hospitality in every event."
+                "We aim to serve every event with a perfect blend of tradition, taste, and hospitality.
+Through dedication and excellence, Sree Annapurna Caterers strives to create moments guests remember long after the celebration ends."
               </p>
             </motion.div>
 
